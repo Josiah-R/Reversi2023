@@ -3,17 +3,18 @@
   *     be implemented in a subclass.
   *
   * @author      Cathy Bareiss
-  * @id          cathy.bareiss@betheluniversity.edua
+  * @Modifier	 Noah Jackson
+  * @id          cathy.bareiss@betheluniversity.edu
   * @course      CSC 321: Programming 3
   * @assignment  Reversi Project
   * @related     Piece
   */
-public class Board {
+public class Board implements BoardInterface{
     // fields
     /** pieces for the board */
     private Piece[][] pieces;
     /** size of the board */
-    private int size;  // not needed - can go by length but implemented instead
+    protected int size;  // not needed - can go by length but implemented instead
 
     // public class constants about generic games
     /** the default size of the board */
@@ -28,8 +29,6 @@ public class Board {
 //Constructors and related methods
     /** create a board of the default size */
     public Board() {
-        int row, column;
-
         size = DEFAULTSIZE;
         pieces = new Piece[size][size];
         blankBoard();
@@ -39,8 +38,6 @@ public class Board {
       * @param inSize - size of board
       */
     public Board(int inSize) {
-        int row, column;
-
         size = inSize;
         pieces = new Piece[size][size];
         blankBoard();
@@ -105,7 +102,7 @@ public class Board {
       * @param otherBoard the board to compare to
       * @return if same pieces at every location
       */
-    public boolean equals(Board otherBoard) {
+    public boolean equals(BoardInterface otherBoard) {
         int row, column;
         boolean same;
 
