@@ -8,7 +8,7 @@
 public class Piece {
     // fields
     /** the type of piece */
-    private int type;
+    protected int type;
 
 //Class constants
 //   public
@@ -16,9 +16,9 @@ public class Piece {
     public static final int BLANK = 0;
 //   private
     /** smallest value allowed for a piece */
-    private static final int MIN = 0;
+    protected static final int MIN = 0;
     /** the largest value allowed for a piece */
-    private static final int MAX = 2;
+    protected static final int MAX = 2;
 
 //Constructor
     /** create a piece of the given type
