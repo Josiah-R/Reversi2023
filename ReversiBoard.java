@@ -34,7 +34,8 @@ public class ReversiBoard extends Board {
                 pieces[row][column] = new ReversiPiece(ReversiPiece.BLANK);
 
     }
-    //Adds the starting four pieces, might not be centered if an odd numbered square
+    //Adds the starting four pieces
+    //ight not be centered if an odd numbered square
     private void addStart() {
         pieces[Math.round(size / 2)][Math.round(size / 2)].setType(1);
         pieces[Math.round(size / 2) + 1][Math.round(size / 2) + 1].setType(1);
@@ -74,7 +75,8 @@ public class ReversiBoard extends Board {
         return new int[] {0,0};
     }
     // Checks if a move causes a flip in a given direction
-    private boolean checkDirectionFlip(int row, int column, ReversiPiece inPiece, int direction) {
+    private boolean checkDirectionFlip(int row, int column, 
+                                        ReversiPiece inPiece, int direction) {
         int[] cellChange;
         int currentRow, currentColumn;
 
@@ -84,7 +86,8 @@ public class ReversiBoard extends Board {
         currentRow = row + cellChange[0];
         currentColumn = column + cellChange[1];
         while (onTheBoard(currentRow, currentColumn) == true && 
-                pieces[currentRow][currentColumn].getType() == inPiece.getOpposite()) {
+                pieces[currentRow][currentColumn].getType() 
+                == inPiece.getOpposite()) {
             currentRow = currentRow + cellChange[0];
             currentColumn = currentColumn + cellChange[1];
         }
@@ -125,12 +128,14 @@ public class ReversiBoard extends Board {
             pieces[row][column].setType(inPiece.getType());
             //Check all directions, flip any between type. 
             for (int direction = 0; direction < 8; direction++) {
-                if (checkDirectionFlip(row, column, inPiece, direction) == true) {
+                if (checkDirectionFlip(row, column, inPiece, direction) 
+                        == true) {
                     // while opposite in direction, flip piece. 
                     cellChange = getDirectionVariables(direction);
                     currentRow = row + cellChange[0];
                     currentColumn = column + cellChange[1];
-                    while (pieces[currentRow][currentColumn].getType() == inPiece.getOpposite()) {
+                    while (pieces[currentRow][currentColumn].getType() 
+                            == inPiece.getOpposite()) {
                         pieces[currentRow][currentColumn].flipType();
                         currentRow = currentRow + cellChange[0];
                         currentColumn = currentColumn + cellChange[1];
@@ -171,8 +176,12 @@ public class ReversiBoard extends Board {
         blackCount = 0;
         for (row = 0; row < size; row++) {
             for (column = 0; column < size; column++) {
-                if (pieces[row][column].getType() == ReversiPiece.WHITE) whiteCount++;
-                if (pieces[row][column].getType() == ReversiPiece.BLACK) blackCount++;
+                if (pieces[row][column].getType() == ReversiPiece.WHITE) {
+                    whiteCount++;
+                }
+                if (pieces[row][column].getType() == ReversiPiece.BLACK) {
+                    blackCount++;
+                }
             }
         }
         if (whiteCount > blackCount) {
