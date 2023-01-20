@@ -1,3 +1,7 @@
+/*  Josiah Railton
+    Programming III, Spring 23
+    Reversi*/
+
 public class ReversiPiece extends Piece {
     // Sets up constant integers for the color types
     public static final int WHITE = 1;

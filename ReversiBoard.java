@@ -1,3 +1,7 @@
+/*  Josiah Railton
+    Programming III, Spring 23
+    Reversi*/
+
 public class ReversiBoard extends Board {
     // A player class could probably simplifiy this in the future
     ReversiPiece player1, player2;
