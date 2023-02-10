@@ -1,14 +1,14 @@
-/** This class will store a piece which is just an integer.
-  * @author     Cathy Bareiss
-  * @id         cathy.bareiss@betheluniversity.edu
-  * @course     CSIS 321:  Programming 3
-  * @assignment Reversi Project
-  * @related    none
- */
+/********************************************************
+    * Author: Josiah Railton
+	* Course: CSC 321
+	* Assignment: Reversi Game GUI Sample
+    * Purpose: Piece class for game, mostly made by Bareiss
+********************************************************/
+
 public class Piece {
     // fields
     /** the type of piece */
-    private int type;
+    protected int type;
 
 //Class constants
 //   public
@@ -16,9 +16,9 @@ public class Piece {
     public static final int BLANK = 0;
 //   private
     /** smallest value allowed for a piece */
-    private static final int MIN = 0;
+    protected static final int MIN = 0;
     /** the largest value allowed for a piece */
-    private static final int MAX = 2;
+    protected static final int MAX = 2;
 
 //Constructor
     /** create a piece of the given type

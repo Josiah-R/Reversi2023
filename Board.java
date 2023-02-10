@@ -1,19 +1,15 @@
-/** This class will store a generic square board of pieces.
-  *     Details about how the board is used in a given game must
-  *     be implemented in a subclass.
-  *
-  * @author      Cathy Bareiss
-  * @id          cathy.bareiss@betheluniversity.edua
-  * @course      CSC 321: Programming 3
-  * @assignment  Reversi Project
-  * @related     Piece
-  */
+/********************************************************
+    * Author: Josiah Railton
+	* Course: CSC 321
+	* Assignment: Reversi Game GUI Sample
+    * Purpose: Board class for a game board
+********************************************************/
 public class Board {
     // fields
     /** pieces for the board */
-    private Piece[][] pieces;
+    protected Piece[][] pieces;
     /** size of the board */
-    private int size;  // not needed - can go by length but implemented instead
+    protected int size;  // not needed - can go by length but implemented instead
 
     // public class constants about generic games
     /** the default size of the board */
@@ -28,8 +24,6 @@ public class Board {
 //Constructors and related methods
     /** create a board of the default size */
     public Board() {
-        int row, column;
-
         size = DEFAULTSIZE;
         pieces = new Piece[size][size];
         blankBoard();
@@ -39,8 +33,6 @@ public class Board {
       * @param inSize - size of board
       */
     public Board(int inSize) {
-        int row, column;
-
         size = inSize;
         pieces = new Piece[size][size];
         blankBoard();
@@ -48,7 +40,7 @@ public class Board {
 
     // sets entire board to blanks
     /** set all pieces to blank */
-    private void blankBoard() {
+    protected void blankBoard() {
         int row, column;
 
         for (row = 0; row < size; row++)
