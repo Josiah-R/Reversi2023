@@ -15,7 +15,9 @@ public class ReversiFrame extends JFrame{
     private JButton newGameButton;
     
     private JLabel messageLabel;    
-    private PlayListener myListener;    
+    private PlayListener myListener;   
+    public JButton[][] buttonTable; 
+    private Color GREEN;
     
     public class PlayListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
@@ -33,22 +35,36 @@ public class ReversiFrame extends JFrame{
         }
     }
 
+    public class ResetListener implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            for (int row = 0; row < buttonTable.length; row++) {
+                for (int col = 0; col < buttonTable[row].length; col++) {
+                    buttonTable[row][col].setIcon(null);
+                }
+            }
+        }
+    }
+
+    //Modify if size of board can change.
     public ReversiFrame () {
+        buttonTable = new JButton[8][8];
+        GREEN = new Color(5, 117, 52);
         setGraphics();
     }
-    //Probably add a new button class that extends JButton, 
-    // and stores row and column as field variable
     // Change to change size?
     private void addBoard(JPanel panel) {
         for (int i=0; i<8; i++) {
             for (int j=0; j<8; j++) {
                 JButton newButton;
-                newButton = new JButton( "" + i + ", " + j); 
+                newButton = new JButton(); 
                 newButton.setBorder(
                     BorderFactory.createLineBorder(Color.black));
                 newButton.setSize(10,10);
+                newButton.setBackground(GREEN);
+                newButton.setOpaque(true);
                 panel.add(newButton);
                 newButton.addActionListener(myListener);
+                buttonTable[i][j] = newButton;
             } 
         }
     }
@@ -76,7 +92,7 @@ public class ReversiFrame extends JFrame{
         messageLabel = new JLabel("Message");
         myListener = new PlayListener();
 
-        newGameButton.addActionListener(myListener);
+        newGameButton.addActionListener(new ResetListener());
         newGameButton.setEnabled(true);
 
         addBoard(gamePanel);
